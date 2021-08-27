@@ -12,10 +12,25 @@ static ComplexNumber initNewComplexNumber(ComplexNumber newComplexNumber){
 
 }
 
-ComplexNumber newComplexNumber(float real, float imaginary){
+ComplexNumber newComplexNumber(void){
     ComplexNumber myComplexNumber = NULL;
     myComplexNumber = malloc(sizeof(struct _Complex_Number));
     myComplexNumber = initNewComplexNumber(myComplexNumber);
     return myComplexNumber;
 
+}
+
+ComplexNumber setComplexNumber(ComplexNumber phasor, float real, float imaginary){
+    phasor->real = real;
+    phasor->imaginary = imaginary;
+    return phasor;
+}
+
+ComplexNumber getComplexNumberComponents(ComplexNumber phasor, float *real, float *imaginary){
+    *real=phasor->real;
+    *imaginary=phasor->imaginary;
+}
+
+ComplexNumber freeComplexNumber(ComplexNumber phasor){
+    free(phasor);
 }
